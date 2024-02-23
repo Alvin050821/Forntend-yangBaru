@@ -51,7 +51,7 @@ import '@angular/localize/init';
  */
 import 'zone.js';  // Included with Angular CLI.
 import 'jquery';
-import 'datatables.net';
+
 
 /***************************************************************************************************
  * APPLICATION IMPORTS

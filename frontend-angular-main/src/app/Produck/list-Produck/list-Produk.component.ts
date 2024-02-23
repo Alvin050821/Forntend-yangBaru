@@ -2,9 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { produckModel } from "../Produck.model";
 import { ProduckService } from "../Produck.service";
 import { Observable } from 'rxjs';
-import * as $ from 'jquery';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { DataTableDirective } from 'angular-datatables';
+
 // import DataTables from 'datatables.net';
 
 @Component({
@@ -13,8 +12,6 @@ import { DataTableDirective } from 'angular-datatables';
   styleUrls: ['./list-produck.component.css']
 })
 export class ListProduckComponent implements OnInit {
-  @ViewChild(DataTableDirective, { static: false })
-  dtElement!: DataTableDirective;
 
   formSearch: FormGroup;
   listProduck: produckModel[] = [];
@@ -81,13 +78,5 @@ export class ListProduckComponent implements OnInit {
       this.getList();
     }
   }
-  // ngAfterViewInit(): void {
-  //   $(this.table.nativeElement).DataTable();
-  // }
-  // find() {
-  //   this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-  //     dtInstance.draw();
-  //   });
-  // }
 
 }
