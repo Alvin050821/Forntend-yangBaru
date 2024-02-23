@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="text-center">Communication</h1>
+  <div class="card rounded p-3 mb-3">
+    <h3>Form</h3>
+    <form [formGroup]="formPesan">
+      <div class="mb-3">
+        <label for="nama" class="form-label">Nama</label>
+        <input type="text" formControlName="nama" class="form-control" id="nama" >
+      </div>
+      <div class="mb-3">
+        <label for="pesan" class="form-label">Pesan</label>
+        <textarea class="form-control" formControlName="pesan" id="pesan" rows="3"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="kirimPesan()">Save</button>
+    </form>
+  </div>
+  <app-child [pesan]="pesan" (sendMessage)="acceptChild($event)"></app-child>
+</div>

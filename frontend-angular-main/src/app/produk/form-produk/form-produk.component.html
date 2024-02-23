@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="text-center">{{menu}} Produk</h1>
+  <div class="border rounded p-3">
+    <form [formGroup]="formProduk">
+      <div class="mb-3">
+        <label for="produsen" class="form-label">Produsen</label>
+        <select class="form-control" name="produsen" id="produsen" formControlName="produsen">
+          <option *ngFor="let item of listProdusen" value="{{item.id}}">{{item.nama}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="nama" class="form-label">Nama</label>
+        <input type="text" class="form-control" formControlName="nama" id="nama">
+      </div>
+      <div class="mb-3">
+        <label for="jenis" class="form-label">Jenis</label>
+        <input type="text" class="form-control" formControlName="jenis" id="jenis">
+      </div>
+      <div class="mb-3">
+        <label for="berat" class="form-label">Berat</label>
+        <input type="text" class="form-control" formControlName="berat" id="berat">
+      </div>
+      <button class="btn btn-primary" (click)="save()">Save</button>
+    </form>
+  </div>
+</div>
+

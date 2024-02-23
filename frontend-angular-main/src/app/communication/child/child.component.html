@@ -1,0 +1,23 @@
+<div class="card border rounded p-3">
+  <h3>Data</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Pesan</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listPesan; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item?.nama}}</td>
+        <td>{{item?.pesan}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="edit(i)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

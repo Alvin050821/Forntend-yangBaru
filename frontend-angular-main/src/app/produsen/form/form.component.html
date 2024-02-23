@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="text-center">{{menu}} Produsen</h1>
+  <div class="border rounded p-3">
+    <form [formGroup]="formProdusen">
+      <div class="mb-3">
+        <label for="nama" class="form-label">Nama</label>
+        <input type="text" class="form-control" formControlName="nama" id="nama">
+      </div>
+      <div class="mb-3">
+        <label for="kode" class="form-label">Kode</label>
+        <input type="text" class="form-control" formControlName="kode" id="kode">
+      </div>
+      <div class="mb-3">
+        <label for="alamat" class="form-label">Alamat</label>
+        <textarea class="form-control" rows="3" formControlName="alamat" id="alamat"></textarea>
+      </div>
+      <button class="btn btn-primary" (click)="save()">Save</button>
+    </form>
+  </div>
+</div>
+
