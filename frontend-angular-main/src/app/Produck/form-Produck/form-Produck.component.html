@@ -1,0 +1,56 @@
+<div class="container">
+  <h1 class="text-center">{{menu}} Produck</h1>
+  <div class="border rounded p-3">
+    <form [formGroup]="formProduck">
+      <div class="mb-3">
+        <label for="namaProduk" class="form-label">namaProduk</label>
+        <input type="text" class="form-control" formControlName="namaProduk" id="namaProduk">
+      </div>
+      <!-- Tambahkan elemen untuk menampilkan pesan -->
+      <div *ngIf="showMessage" class="alert alert-success">{{message}}</div>
+      <div class="mb-3">
+        <label for="jumlahProduk" class="form-label">jumlahProduk</label>
+        <input type="text" class="form-control" formControlName="jumlahProduk" id="jumlahProduk">
+      </div>
+      <div class="mb-3">
+        <label for="hargaProduk" class="form-label">hargaProduk</label>
+        <input type="text" class="form-control" formControlName="hargaProduk" id="hargaProduk">
+      </div>
+      <div class="mb-3">
+        <label for="warna" class="form-label">warna</label>
+        <input type="text" class="form-control" formControlName="warna" id="warna">
+      </div>
+      <!-- <div class="mb-3">
+        <label for="perusahaan" class="form-label">Perusahaan</label>
+        <select class="form-control" formControlName="perusahaan" id="perusahaan">
+          <option value="Perusahaan A">Perusahaan A</option>
+          <option value="Perusahaan B">Perusahaan B</option>
+          <option value="Perusahaan C">Perusahaan C</option>
+        </select>
+      </div> -->
+      <div class="container">
+        <div class="row">
+            <div class='col-sm-3'>
+                <div class="form-group">
+                    <label for="waktu" class="form-label">Waktu</label>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type="date" class="form-control" formControlName="waktu" id="waktu">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
+    </script>
+
+      <button class="btn btn-primary" (click)="save()">Save</button>
+    </form>
+  </div>
+</div>

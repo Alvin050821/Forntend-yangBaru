@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {CountComponent} from "./count/count.component";
 import {ParentComponent} from "./communication/parent/parent.component";
 import {ProdusenModule} from "./produsen/produsen.module";
-import {ProdukModule} from "./produk/produk.module";
+import { ProduckModule } from './Produck/Produck.module';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
     loadChildren: () => ProdusenModule
   },
   {
-    path: 'produk',
-    loadChildren: () => ProdukModule
+    path: 'produck',
+    loadChildren: () => ProduckModule
   }
 ];
 

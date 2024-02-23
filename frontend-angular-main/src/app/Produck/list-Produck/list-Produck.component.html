@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="text-center">List Produck</h1>
+
+  <div class="rounded border">
+    <form [formGroup]="formSearch">
+      <input type="text" placeholder="Nama" name="nama" id="nama" formControlName="nama" class="form-control mr-3">
+    </form>
+  <button class="btn btn-success mr-3 min-button-size" (click)="findByName()">
+    <i class="fa fa-search fa-lg "></i> Cari
+  </button>
+    <button class="btn btn-dark m-2 " [routerLink]="['/','produck','form']">Tambah</button>
+    <table class="table" id="example" class="table table-striped table-bordered" style="width:120%">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Jumlah</th>
+        <th scope="col">harga</th>
+        <th scope="col">warna</th>
+        <th scope="col">tanggal</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of listProduck; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{item.namaProduk}}</td>
+        <td>{{item.jumlahProduk}}</td>
+        <td>{{item.hargaProduk}}</td>
+        <td>{{item.warna}}</td>
+        <td>{{ (item.waktu) }}</td>
+        <td>
+          <button class="btn btn-sm btn-danger m-1" (click)="delete(item.id)">Delete</button>
+          <button class="btn btn-sm btn-success m-1" [routerLink]="['/','produk','edit',item.id]">Edit</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
