@@ -1,27 +1,94 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Bootcamp</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/','count']">Count</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/','communication']">Communication</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/','produsen']">Produsen</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/','produck']">Produck</a>
-        </li>
-      </ul>
+<!-- Lamun uweh nu login -->
+<div *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/login">GT Shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/register']">Register</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
+
+<!-- navbar admin. lamun admin login -->
+<!-- email : admin@test.com | Pw : admin  -->
+<div *ngIf="isAdminLoggedIn">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/login">Login Admin</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/Admin/dashboard']">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/','count']">Count</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/','communication']">Communication</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/','produsen']">Produsen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/','produck']">Produck</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- navbar customer. lamun customer login -->
+<!-- email : customer3@test.com | pw : customer3 -->
+<div *ngIf="isCustomerLoggedIn">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/login">Login Customer</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/Customer/dashboard']">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/','count']">Count</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/','communication']">Communication</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/','produsen']">Produsen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/','produck']">Produck</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

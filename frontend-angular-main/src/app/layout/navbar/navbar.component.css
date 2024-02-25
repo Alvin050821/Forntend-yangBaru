@@ -1,0 +1,27 @@
+.navbar-brand {
+  margin-right: 20px; /* Sesuaikan jarak ke kanan */
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 15px;
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-right: 0;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  color: #000; /* Warna teks normal */
+}
+
+.navbar-nav .nav-link:hover {
+  background-image: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+  color: #fff; /* Warna teks saat hover */
+  transition: background-image 0.3s ease;
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from 'src/app/auth/services/storage/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isCustomerLoggedIn: boolean = StorageService.isCustomerLoggedIn();
+  isAdminLoggedIn: boolean = StorageService.isAdminLoggedIn();
 
-  ngOnInit(): void {
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event.constructor.name === "NavigationEnd") {
+        this.isAdminLoggedIn = StorageService.isAdminLoggedIn();
+        this.isCustomerLoggedIn = StorageService.isCustomerLoggedIn();
+      }
+    })
+  }
+
+  logout() {
+    StorageService.logout();
+    this.router.navigateByUrl("/login");
   }
 
 }

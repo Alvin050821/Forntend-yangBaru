@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bootcamp-angular';
+  title = 'GT Shop | WWKWKWKWK UUUWUUU';
 }
+
+// logic Admin dan Customer aya di navbar.components.ts
