@@ -1,94 +1,118 @@
-<!-- Lamun uweh nu login -->
-<div *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/login">GT Shop</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/login']">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/register']">Register</a>
-          </li>
+<!-- Navbar admin, lamun admin login -->
+<!-- email: admin@test.com | pw : admin -->
+<!--Main Navigation-->
+<header>
+  <div *ngIf="isAdminLoggedIn">
+
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a [routerLink]="['/Admin/dashboard']" class="list-group-item list-group-item-action py-2 ripple"
+            aria-current="true">
+            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+          </a>
+          <a [routerLink]="['/','produck']" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-lock fa-fw me-3"></i><span>Produck</span>
+          </a>
+          <a class="list-group-item list-group-item-action py-2 ripple" (click)="logout()">
+            <i class="fas fa-chart-line fa-fw me-3"></i><span>Logout</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+          aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+          <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="25" alt="MDB Logo"
+            loading="lazy" />
+        </a>
+
+        <!-- Search form -->
+        <form class="d-none d-md-flex input-group w-auto my-auto">
+          <input autocomplete="off" type="search" class="form-control rounded"
+            placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px;" />
+          <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+        </form>
+
+        <!-- Right links -->
+        <ul class="navbar-nav ms-auto d-flex flex-row">
+
         </ul>
       </div>
-    </div>
-  </nav>
-</div>
+    </nav>
+  </div>
+</header>
 
-<!-- navbar admin. lamun admin login -->
-<!-- email : admin@test.com | Pw : admin  -->
-<div *ngIf="isAdminLoggedIn">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/login">Login Admin</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/Admin/dashboard']">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/','count']">Count</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/','communication']">Communication</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/','produsen']">Produsen</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/','produck']">Produck</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</div>
 
-<!-- navbar customer. lamun customer login -->
+<!-- Navbar customer. Lamun customer login -->
 <!-- email : customer3@test.com | pw : customer3 -->
-<div *ngIf="isCustomerLoggedIn">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/login">Login Customer</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/Customer/dashboard']">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/','count']">Count</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/','communication']">Communication</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/','produsen']">Produsen</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/','produck']">Produck</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout</a>
-          </li>
+
+<!--Main Navigation-->
+<header>
+  <div *ngIf="isCustomerLoggedIn">
+
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a [routerLink]="['/Customer/dashboard']" class="list-group-item list-group-item-action py-2 ripple"
+            aria-current="true">
+            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+          </a>
+          <a [routerLink]="['/','produck']" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-lock fa-fw me-3"></i><span>Produck</span>
+          </a>
+          <a class="list-group-item list-group-item-action py-2 ripple" (click)="logout()" style="cursor: pointer;">
+            <i class="fas fa-chart-line fa-fw me-3"></i><span>Logout</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+          aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+          <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="25" alt="MDB Logo"
+            loading="lazy" />
+        </a>
+
+        <!-- Search form -->
+        <form class="d-none d-md-flex input-group w-auto my-auto">
+          <input autocomplete="off" type="search" class="form-control rounded"
+            placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px;" />
+          <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+        </form>
+
+        <!-- Right links -->
+        <ul class="navbar-nav ms-auto d-flex flex-row">
+
         </ul>
       </div>
-    </div>
-  </nav>
-</div>
+    </nav>
+  </div>
+</header>
