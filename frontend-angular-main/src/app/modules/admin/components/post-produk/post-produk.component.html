@@ -1,1 +1,65 @@
-<p>post-produk works!</p>
+<!-- Navbar admin, lamun admin login -->
+<!-- email: admin@test.com | pw : admin -->
+<!--Main Navigation-->
+<header>
+  <div *ngIf="isAdminLoggedIn" class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white col-lg-3">
+        <div class="position-sticky">
+          <div class="list-group list-group-flush mx-3 mt-4">
+            <a [routerLink]="['/admin/dashboard']" class="list-group-item list-group-item-action py-2 ripple"
+              aria-current="true">
+              <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+            </a>
+            <a [routerLink]="['/','produck']" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-lock fa-fw me-3"></i><span>Produck</span>
+            </a>
+            <a [routerLink]="['/admin/produks']" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-lock fa-fw me-3"></i><span>Ini yang baru prduk</span>
+            </a>
+            <a class="list-group-item list-group-item-action py-2 ripple" (click)="logout()"
+              style="cursor: pointer;">
+              <i class="fas fa-chart-line fa-fw me-3"></i><span>Logout</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <!-- End Sidebar -->
+
+      <!-- Konten Form Produk -->
+      <div class="col-lg-9">
+        <div class="border rounded p-3">
+          <form>
+            <div class="mb-3">
+              <label for="namaProduk" class="form-label">Nama Produk</label>
+              <input type="text" class="form-control" formControlName="namaProduk" id="namaProduk">
+            </div>
+            <div class="mb-3">
+              <label for="tanggalProduk" class="form-label">Tanggal</label>
+              <input type="date" class="form-control" formControlName="tanggalProduk" id="tanggalProduk">
+            </div>
+            <div class="mb-3">
+              <label for="jumlahProduk" class="form-label">Jumlah Produk</label>
+              <input type="number" class="form-control" formControlName="jumlahProduk" id="jumlahProduk">
+            </div>
+            <div class="mb-3">
+              <label for="hargaProduk" class="form-label">Harga Produk</label>
+              <input type="text" class="form-control" formControlName="hargaProduk" id="hargaProduk">
+            </div>
+            <div class="mb-3">
+              <label for="warna" class="form-label">Warna</label>
+              <input type="text" class="form-control" formControlName="warna" id="warna">
+            </div>
+            <div class="mb-3">
+              <label for="gambarProduk" class="form-label">Pilih Gambar</label>
+              <input type="file" class="form-control-file" id="gambarProduk" (change)="onFileSelected($event)">
+            </div>
+            <button class="btn btn-primary mx-auto" (click)="save()">Save</button>
+          </form>
+        </div>
+      </div>
+      <!-- End Konten Form Produk -->
+    </div>
+  </div>
+</header>

@@ -8,14 +8,17 @@
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
       <div class="position-sticky">
         <div class="list-group list-group-flush mx-3 mt-4">
-          <a [routerLink]="['/Admin/dashboard']" class="list-group-item list-group-item-action py-2 ripple"
+          <a [routerLink]="['/admin/dashboard']" class="list-group-item list-group-item-action py-2 ripple"
             aria-current="true">
             <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
           </a>
           <a [routerLink]="['/','produck']" class="list-group-item list-group-item-action py-2 ripple">
             <i class="fas fa-lock fa-fw me-3"></i><span>Produck</span>
           </a>
-          <a class="list-group-item list-group-item-action py-2 ripple" (click)="logout()">
+          <a [routerLink]="['/admin/produks']" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-lock fa-fw me-3"></i><span>Ini yang baru prduk</span>
+          </a>
+          <a class="list-group-item list-group-item-action py-2 ripple" (click)="logout()" style="cursor: pointer;">
             <i class="fas fa-chart-line fa-fw me-3"></i><span>Logout</span>
           </a>
         </div>
@@ -69,7 +72,7 @@
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
       <div class="position-sticky">
         <div class="list-group list-group-flush mx-3 mt-4">
-          <a [routerLink]="['/Customer/dashboard']" class="list-group-item list-group-item-action py-2 ripple"
+          <a [routerLink]="['/customer/dashboard']" class="list-group-item list-group-item-action py-2 ripple"
             aria-current="true">
             <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
           </a>
